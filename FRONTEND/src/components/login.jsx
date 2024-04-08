@@ -68,9 +68,17 @@ export default function LOGIN() {
               alignItems: 'center',
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <div className='mb-10'>
+            <Typography component="h1" variant="h3">
+              <p className='text-[#262829]'>Welcome to V-Connect </p>
+          </Typography>
+
+            </div>
+          
+
+            {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
               <LockOutlinedIcon />
-            </Avatar>
+            </Avatar> */}
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
@@ -119,7 +127,7 @@ export default function LOGIN() {
                   </Link>
                 </Grid>
               </Grid>
-              <Copyright sx={{ mt: 5 }} />
+              {/* <Copyright sx={{ mt: 5 }} /> */}
             </Box>
           </Box>
         </Grid>
