@@ -20,9 +20,6 @@ const App = () => {
 
   return (
     <div>
-      <p>
-        hello
-      </p>
       <Routes>
         <Route path="/" element={<Dashboard />} />
         {/* <Route path="/login" element={<Login setToken={setToken} />} />
