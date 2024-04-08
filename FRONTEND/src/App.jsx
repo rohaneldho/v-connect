@@ -2,6 +2,8 @@ import { useState , useEffect } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
+import { Routes, Route } from 'react-router-dom'
+import Dashboard from './components/dashboard'
 
 
 const App = () => {
@@ -23,7 +25,7 @@ const App = () => {
       </p>
       <Routes>
         <Route path="/" element={<Dashboard />} />
-        <Route path="/login" element={<Login setToken={setToken} />} />
+        {/* <Route path="/login" element={<Login setToken={setToken} />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/createSchedule" element={<Createschedule />} />
@@ -31,7 +33,7 @@ const App = () => {
         <Route path="/delete" element={<Delete />} />
         <Route path="/setAdmin" element={<SetAdmin />} />
         <Route path="/remove" element={<Remove />} />
-        <Route path="/uploadFile" element={<Upload />} />
+        <Route path="/uploadFile" element={<Upload />} /> */}
       </Routes>
     </div>
   )
