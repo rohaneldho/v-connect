@@ -30,7 +30,7 @@ function Copyright(props) {
 
 const defaultTheme = createTheme();
 
-export default function Dashboard() {
+export default function LOGIN() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
