@@ -228,7 +228,19 @@ export default function ProfilePage() {
                 </button>
               </div>
             </div>
+
+
+
+
+            <div className="bg-white rounded-md h-[23rem] p-4 mb-4">
+            PROJECTS
           </div>
+
+
+
+
+          </div>
+
         </div>
       </div>
     </section>
