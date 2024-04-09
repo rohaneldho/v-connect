@@ -4,7 +4,7 @@
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import LOGIN from './components/login'
-
+import ProfilePage from './components/userPage'
 import SignUp from './components/signUp';
 const App = () => {
   // const [token, setToken] = useState(false)
@@ -12,7 +12,11 @@ const App = () => {
   return (
     <div>
       <Routes>
+<<<<<<< HEAD
         
+=======
+        <Route path="/" element={<ProfilePage />}  />
+>>>>>>> 6c6b34e5acdc3688f1bc115ad1fd0be1c49d0ce1
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<LOGIN />} />
 

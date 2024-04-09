@@ -1,180 +1,248 @@
-// import React from 'react';
+import React from 'react';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import XIcon from '@mui/icons-material/X';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import CallIcon from '@mui/icons-material/Call';
 
-// export default function ProfilePage() {
-//   return (
-//     <section style={{ backgroundColor: '#eee', padding: '50px 0' }}>
-//       <div className="container py-5">
-//         <div className="row">
-//           <div className="col">
-//             <nav aria-label="breadcrumb">
-//               <ol className="breadcrumb bg-light rounded-3 p-3 mb-4">
-//                 <li className="breadcrumb-item"><a href="#">Home</a></li>
-//                 <li className="breadcrumb-item"><a href="#">User</a></li>
-//                 <li className="breadcrumb-item active" aria-current="page">User Profile</li>
-//               </ol>
-//             </nav>
-//           </div>
-//         </div>
+export default function ProfilePage() {
+  const [editing1, setEditing1] = React.useState(false);
+  const [phone, setPhone] = React.useState('9207995728');
+  const [instagram, setInstagram] = React.useState('www.instagram.com');
+  const [twitter, setTwitter] = React.useState('www.twitter.com');
+  const [linkedIn, setLinkedIn] = React.useState('www.LinkedIn.com');
+  const [github, setGitHub] = React.useState('www.GITHUB.com');
 
-//         <div className="row">
-//           <div className="col-lg-4 mb-4">
-//             <div className="card">
-//               <img src="" alt="avatar" className="card-img-top rounded-circle" style={{ width: '150px', margin: '0 auto' }} />
-//               <div className="card-body text-center">
-//                 <p className="text-muted mb-1">Full Stack Developer</p>
-//                 <p className="text-muted mb-4">Bay Area, San Francisco, CA</p>
-//                 <div className="d-flex justify-content-center mb-2">
-//                   <button className="btn btn-primary me-1">Follow</button>
-//                   <button className="btn btn-outline-primary">Message</button>
-//                 </div>
-//               </div>
-//             </div>
+  const [editing2, setEditing2] = React.useState(false);
+  const [fullName, setFullName] = React.useState('Barack Obama');
+  const [email, setEmail] = React.useState('BO@gmail.com');
+  const [campus, setCampus] = React.useState('Chennai');
+  const [skills, setSkills] = React.useState('C,C++');
 
-//             <div className="card mt-4">
-//               <div className="card-body p-0">
-//                 <ul className="list-group list-group-flush rounded-3">
-//                   <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-//                     <i className="fas fa-globe fa-lg text-warning"></i>
-//                     <span>https://mdbootstrap.com</span>
-//                   </li>
-//                   <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-//                     <i className="fab fa-github fa-lg" style={{ color: '#333333' }}></i>
-//                     <span>mdbootstrap</span>
-//                   </li>
-//                   <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-//                     <i className="fab fa-twitter fa-lg" style={{ color: '#55acee' }}></i>
-//                     <span>@mdbootstrap</span>
-//                   </li>
-//                   <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-//                     <i className="fab fa-instagram fa-lg" style={{ color: '#ac2bac' }}></i>
-//                     <span>mdbootstrap</span>
-//                   </li>
-//                   <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-//                     <i className="fab fa-facebook fa-lg" style={{ color: '#3b5998' }}></i>
-//                     <span>mdbootstrap</span>
-//                   </li>
-//                 </ul>
-//               </div>
-//             </div>
-//           </div>
-//           <div className="col-lg-8">
-//             <div className="card mb-4">
-//               <div className="card-body">
-//                 <div className="row">
-//                   <div className="col-sm-3">
-//                     <p className="mb-0">Full Name</p>
-//                   </div>
-//                   <div className="col-sm-9">
-//                     <p className="text-muted mb-0">Johnatan Smith</p>
-//                   </div>
-//                 </div>
-//                 <hr />
-//                 <div className="row">
-//                   <div className="col-sm-3">
-//                     <p className="mb-0">Email</p>
-//                   </div>
-//                   <div className="col-sm-9">
-//                     <p className="text-muted mb-0">example@example.com</p>
-//                   </div>
-//                 </div>
-//                 <hr />
-//                 <div className="row">
-//                   <div className="col-sm-3">
-//                     <p className="mb-0">Phone</p>
-//                   </div>
-//                   <div className="col-sm-9">
-//                     <p className="text-muted mb-0">(097) 234-5678</p>
-//                   </div>
-//                 </div>
-//                 <hr />
-//                 <div className="row">
-//                   <div className="col-sm-3">
-//                     <p className="mb-0">Mobile</p>
-//                   </div>
-//                   <div className="col-sm-9">
-//                     <p className="text-muted mb-0">(098) 765-4321</p>
-//                   </div>
-//                 </div>
-//                 <hr />
-//                 <div className="row">
-//                   <div className="col-sm-3">
-//                     <p className="mb-0">Address</p>
-//                   </div>
-//                   <div className="col-sm-9">
-//                     <p className="text-muted mb-0">Bay Area, San Francisco, CA</p>
-//                   </div>
-//                 </div>
-//               </div>
-//             </div>
+  const handleEdit1 = () => {
+    setEditing1(!editing1);
+  };
 
-//             <div className="row">
-//               <div className="col-md-6">
-//                 <div className="card mb-4">
-//                   <div className="card-body">
-//                     <p className="mb-4"><span className="text-primary font-italic me-1">assignment</span> Project Status</p>
-//                     <p className="mb-1" style={{ fontSize: '.77rem' }}>Web Design</p>
-//                     <div className="progress rounded mb-2">
-//                       <div className="progress-bar" role="progressbar" style={{ width: '80%' }}></div>
-//                     </div>
+  const handleEdit2 = () => {
+    setEditing2(!editing2);
+  };
 
-//                     <p className="mb-1" style={{ fontSize: '.77rem' }}>Website Markup</p>
-//                     <div className="progress rounded mb-2">
-//                       <div className="progress-bar" role="progressbar" style={{ width: '72%' }}></div>
-//                     </div>
+  return (
+    <section className="bg-gray-200 py-10">
+      <div className="container mx-auto">
 
-//                     <p className="mb-1" style={{ fontSize: '.77rem' }}>One Page</p>
-//                     <div className="progress rounded mb-2">
-//                       <div className="progress-bar" role="progressbar" style={{ width: '89%' }}></div>
-//                     </div>
+        <div className="flex flex-wrap">
+          {/* Profile Card */}
+          <div className="w-full lg:w-1/3 mb-4 lg:mb-0">
+            <div className="bg-white rounded-md p-4 m-10">
+              {/* Profile Photo (Put the link here) */}
+              <img src="src\assets\Barack-Obama.webp" alt="avatar" className="rounded-full mx-auto mb-4" style={{ width: '150px' }} />
+              <div className="text-center">
+                <p className="text-gray-600 mb-1">Full Stack Developer</p>
+                <p className="text-gray-600 mb-4">Chennai, Tamil Nadu</p>
+                <div className="flex justify-center">
+                  <button className="btn-primary mr-2">Follow</button>
+                  <button className="btn-outline-primary">Message</button>
+                </div>
+              </div>
+            </div>
 
-//                     <p className="mb-1" style={{ fontSize: '.77rem' }}>Mobile Template</p>
-//                     <div className="progress rounded mb-2">
-//                       <div className="progress-bar" role="progressbar" style={{ width: '55%' }}></div>
-//                     </div>
+            {/* Social Links */}
+            <div className="mt-4 bg-white rounded-md p-4 m-10">
+              <ul className="list-group">
+                {/* Phone */}
+                <li className="list-group-item flex justify-between items-center m-2">
+                  <CallIcon/>
+                  {editing1 ? (
+                    <input
+                      type="text"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                    />
+                  ) : (
+                    <>
+                      <i className="fas fa-globe fa-lg text-warning"></i>
+                      <span>{phone}</span>
+                    </>
+                  )}
+                </li>
+                {/* Instagram */}
+                <li className="list-group-item flex justify-between items-center m-2">
+                  <InstagramIcon/>
+                  {editing1 ? (
+                    <input
+                      type="text"
+                      value={instagram}
+                      onChange={(e) => setInstagram(e.target.value)}
+                    />
+                  ) : (
+                    <>
+                      <i className="fas fa-globe fa-lg text-warning"></i>
+                      <span>{instagram}</span>
+                    </>
+                  )}
+                </li>
+                {/* Twitter */}
+                <li className="list-group-item flex justify-between items-center m-2">
+                  <XIcon/>
+                  {editing1 ? (
+                    <input
+                      type="text"
+                      value={twitter}
+                      onChange={(e) => setTwitter(e.target.value)}
+                    />
+                  ) : (
+                    <>
+                      <i className="fas fa-globe fa-lg text-warning"></i>
+                      <span>{twitter}</span>
+                    </>
+                  )}
+                </li>
+                {/* LinkedIn */}
+                <li className="list-group-item flex justify-between items-center m-2">
+                  <LinkedInIcon/>
+                  {editing1 ? (
+                    <input
+                      type="text"
+                      value={linkedIn}
+                      onChange={(e) => setLinkedIn(e.target.value)}
+                    />
+                  ) : (
+                    <>
+                      <i className="fas fa-globe fa-lg text-warning"></i>
+                      <span>{linkedIn}</span>
+                    </>
+                  )}
+                </li>
+                {/* GitHub */}
+                <li className="list-group-item flex justify-between items-center m-2">
+                  <GitHubIcon/>
+                  {editing1 ? (
+                    <input
+                      type="text"
+                      value={github}
+                      onChange={(e) => setGitHub(e.target.value)}
+                    />
+                  ) : (
+                    <>
+                      <i className="fas fa-globe fa-lg text-warning"></i>
+                      <span>{github}</span>
+                    </>
+                  )}
+                </li>
+              </ul>
+              {/* Edit Button */}
+              <div className="text-center">
+                <button
+                  className="btn btn-primary"
+                  onClick={handleEdit1}
+                >
+                  {editing1 ? 'Save' : 'Edit'}
+                </button>
+              </div>
+            </div>
+          </div>
 
-//                     <p className="mb-1" style={{ fontSize: '.77rem' }}>Backend API</p>
-//                     <div className="progress rounded mb-2">
-//                       <div className="progress-bar" role="progressbar" style={{ width: '66%' }}></div>
-//                     </div>
-//                   </div>
-//                 </div>
-//               </div>
+          {/* Profile Details */}
+          <div className="w-full lg:w-2/3 mt-10">
+            <div className="bg-white rounded-md p-4 mb-4">
+              {/* Personal Information */}
+              <div className="flex flex-wrap mb-2">
+                <div className="w-full lg:w-1/4">
+                  <p className="mb-0">Full Name</p>
+                </div>
+                <div className="w-full lg:w-3/4">
+                  {editing2 ? (
+                    <input
+                      type="text"
+                      value={fullName}
+                      onChange={(e) => setFullName(e.target.value)}
+                      className="w-full border rounded-md px-3 py-2 outline-none"
+                    />
+                  ) : (
+                    <p className="text-gray-600 mb-0">{fullName}</p>
+                  )}
+                </div>
+              </div>
+              {/* Email */}
+              <div className="flex flex-wrap mb-2">
+                <div className="w-full lg:w-1/4">
+                  <p className="mb-0">Email</p>
+                </div>
+                <div className="w-full lg:w-3/4">
+                  {editing2 ? (
+                    <input
+                      type="text"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="w-full border rounded-md px-3 py-2 outline-none"
+                    />
+                  ) : (
+                    <p className="text-gray-600 mb-0">{email}</p>
+                  )}
+                </div>
+              </div>
+              {/* Campus */}
+              <div className="flex flex-wrap mb-2">
+                <div className="w-full lg:w-1/4">
+                  <p className="mb-0">Campus</p>
+                </div>
+                <div className="w-full lg:w-3/4">
+                  {editing2 ? (
+                    <input
+                      type="text"
+                      value={campus}
+                      onChange={(e) => setCampus(e.target.value)}
+                      className="w-full border rounded-md px-3 py-2 outline-none"
+                    />
+                  ) : (
+                    <p className="text-gray-600 mb-0">{campus}</p>
+                  )}
+                </div>
+              </div>
+              {/* Skills */}
+              <div className="flex flex-wrap mb-2">
+                <div className="w-full lg:w-1/4">
+                  <p className="mb-0">Skills</p>
+                </div>
+                <div className="w-full lg:w-3/4">
+                  {editing2 ? (
+                    <input
+                      type="text"
+                      value={skills}
+                      onChange={(e) => setSkills(e.target.value)}
+                      className="w-full border rounded-md px-3 py-2 outline-none"
+                    />
+                  ) : (
+                    <p className="text-gray-600 mb-0">{skills}</p>
+                  )}
+                </div>
+              </div>
+              {/* Edit Button */}
+              <div className="text-center">
+                <button
+                  className="btn btn-primary"
+                  onClick={handleEdit2}
+                >
+                  {editing2 ? 'Save' : 'Edit'}
+                </button>
+              </div>
+            </div>
 
-//               <div className="col-md-6">
-//                 <div className="card mb-4">
-//                   <div className="card-body">
-//                     <p className="mb-4"><span className="text-primary font-italic me-1">assignment</span> Project Status</p>
-//                     <p className="mb-1" style={{ fontSize: '.77rem' }}>Web Design</p>
-//                     <div className="progress rounded mb-2">
-//                       <div className="progress-bar" role="progressbar" style={{ width: '80%' }}></div>
-//                     </div>
 
-//                     <p className="mb-1" style={{ fontSize: '.77rem' }}>Website Markup</p>
-//                     <div className="progress rounded mb-2">
-//                       <div className="progress-bar" role="progressbar" style={{ width: '72%' }}></div>
-//                     </div>
 
-//                     <p className="mb-1" style={{ fontSize: '.77rem' }}>One Page</p>
-//                     <div className="progress rounded mb-2">
-//                       <div className="progress-bar" role="progressbar" style={{ width: '89%' }}></div>
-//                     </div>
 
-//                     <p className="mb-1" style={{ fontSize: '.77rem' }}>Mobile Template</p>
-//                     <div className="progress rounded mb-2">
-//                       <div className="progress-bar" role="progressbar" style={{ width: '55%' }}></div>
-//                     </div>
+            <div className="bg-white rounded-md h-[23rem] p-4 mb-4">
+            PROJECTS
+          </div>
 
-//                     <p className="mb-1" style={{ fontSize: '.77rem' }}>Backend API</p>
-//                     <div className="progress rounded mb-2">
-//                       <div className="progress-bar" role="progressbar" style={{ width: '66%' }}></div>
-//                     </div>
-//                   </div>
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
+
+
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+}
