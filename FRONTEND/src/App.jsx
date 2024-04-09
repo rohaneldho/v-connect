@@ -26,11 +26,10 @@ const App = () => {
         <Route path="/landing" element={<Landing />} />
         <Route path="/listings" element={<Listings />} />
         <Route path="/userpage" element={<ProfilePage />} />
-<<<<<<< HEAD
+
         <Route path="/clublisting" element={<ClubListings />} />
-=======
+
         <Route path="/clublogin" element={<ClubLogin />} />
->>>>>>> aca120344763d3bba0e79444b2fa0e8e5bab2bf5
         {/* <Route path='/listings' element={<} */}
         </Routes>
       
