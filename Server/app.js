@@ -5,7 +5,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const router = express.Router();
 const User = require("./models/user.js");
-const project = require("./models/project.js");
+const Project = require("./models/project.js");
 const passport = require('passport');
 const session = require('express-session')
 const LocalStrategy=require('passport-local')
@@ -58,7 +58,18 @@ app.post('/signup', async(req, res) => {
 // Serve static files from the frontend build directory
 const frontendDistPath = path.join(__dirname, '..', 'FRONTEND', 'dist');
 app.use(express.static(frontendDistPath));
-
+app.get('/listings', async (req, res) => {
+    try {
+      // Fetch project data from MongoDB
+      console.log("Getting project data");
+      const projects = await Project.find();
+      // Send the project data as JSON response
+      res.json(projects);
+    } catch (error) {
+      console.error('Error fetching project data:', error);
+      res.status(500).json({ error: 'Error fetching project data' });
+    }
+  });
 // Route all other requests to the frontend index.html
 app.get('*', (req, res) => {
     res.sendFile(path.join(frontendDistPath, 'index.html'));
@@ -87,3 +98,27 @@ app.post("/login", passport.authenticate("local", { failureRedirect: "/login", f
     res.json({ status: "success", message: "Welcome" });
     console.log("Hi, Welcome!!!");
 });
+app.post('/makeproj', async (req, res) => {
+    try {
+      let { name, desc, num, type } = req.body;
+      
+      console.log('Received project creation request:', { name, desc, num, type });
+      
+      // Validate that name and desc are provided
+      if (!name || !desc) {
+        throw new Error('Project name and description are required');
+      }
+      
+      const newProject = new Project({ name, desc, num, type });
+      const savedProject = await newProject.save();
+      
+      console.log('Project created successfully:', savedProject);
+      
+      res.send('Project creation successful'); // Send a success response back to the client
+    } catch (error) {
+      console.error('Project creation error:', error);
+      res.status(500).send('Error occurred during project creation'); // Send an error response back to the client
+    }
+  });
+  
+  

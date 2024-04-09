@@ -1,16 +1,36 @@
 import React from "react";
-
+import axios from 'axios';
 const MakeProj = () => {
-  const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent default form submission
-    console.log("efwvf");
-    const data = new FormData(e.target);
-    const name = data.get("project-name");
-    const desc = data.get("project-description");
-    const total = data.get("no-of-people");
-    const type = data.get("project-type");
-    console.log(name, desc, total, type);
+  
+
+const handleSubmit = (e) => {
+  e.preventDefault(); // Prevent default form submission
+  const data = new FormData(e.target);
+  const name = data.get("project-name");
+  const desc = data.get("project-description");
+  const num = data.get("no-of-people");
+  const type = data.get("project-type");
+
+  // Create an object to send as JSON
+  const projectData = {
+    name: name,
+    desc: desc,
+    num: num,
+    type: type
   };
+
+  // Send the data to the backend
+  axios.post('/makeproj', projectData)
+    .then(response => {
+      console.log(response.data);
+      alert('Project has been posted successfully!'); // Alert the user
+      e.target.reset(); // Reset the form
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+};
+
 
   return (
     <div>
