@@ -12,10 +12,22 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 const defaultTheme = createTheme();
 
 export default function SignUp() {
+  const [showPassword, setShowPassword] = React.useState(false);
+  const [campus, setCampus] = React.useState('');
+  const handleChange = (event) => {
+    setCampus(event.target.value);
+  };
+
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -66,6 +78,17 @@ export default function SignUp() {
                   autoComplete="family-name"
                 />
               </Grid>
+
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  id="regno"
+                  label="Registration Number"
+                  name="Registration Number"
+                />
+              </Grid>
+
               <Grid item xs={12}>
                 <TextField
                   required
@@ -76,21 +99,40 @@ export default function SignUp() {
                   autoComplete="email"
                 />
               </Grid>
+
+              <Grid item xs={12}>
+              <InputLabel id="campus">Campus</InputLabel>
+        <Select
+        fullWidth
+          labelId="campus"
+          id="campus-select"
+          value={campus}
+          label="Campus"
+          onChange={handleChange}
+        >
+          <MenuItem value={'C'}>Chennai</MenuItem>
+          <MenuItem value={'V'}>Vellore</MenuItem>
+          <MenuItem value={'AP'}>AP-Amravati</MenuItem>
+          <MenuItem value={'B'}>Bhopal</MenuItem>
+
+        </Select>
+
+              </Grid>
               <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
                   name="password"
                   label="Password"
-                  type="password"
+                  type={showPassword ? 'text' : 'password'}
                   id="password"
                   autoComplete="new-password"
                 />
               </Grid>
               <Grid item xs={12}>
                 <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
-                  label="I want to receive inspiration, marketing promotions and updates via email."
+                  control={<Checkbox onClick={() => setShowPassword(!showPassword)}  color="primary" />}
+                  label="Show password"
                 />
               </Grid>
             </Grid>
