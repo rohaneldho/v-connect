@@ -1,14 +1,18 @@
 const express = require('express');
+const app = express();
 const http = require('http');
 const path = require('path');
 const mongoose = require('mongoose');
 const router = express.Router();
 const User = require("./models/user.js");
+const project = require("./models/project.js");
 const passport = require('passport');
 const session = require('express-session')
 const LocalStrategy=require('passport-local')
+app.set("views", path.join(__dirname,"views"));
+app.use(express.static(path.join(__dirname,"public")));
+app.set("view engine","ejs");
 
-const app = express();
 const server = http.createServer(app);
 const PORT = process.env.PORT || 3400;
 
