@@ -7,17 +7,21 @@ import LOGIN from './components/login'
 import ProfilePage from './components/userPage'
 import SignUp from './components/signUp';
 import Landing from './components/landing'
+import MakeProj from './components/createproject';
+import Listings from './components/listings';
 const App = () => {
   // const [token, setToken] = useState(false)
 
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Landing />}  />       
+      {/* <Route path="/" element={<MakeProj />} />     */}
+        <Route path="/login" element={<LOGIN />}  />   
          <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<LOGIN />} />
+        <Route path="/makeproj" element={<MakeProj />} />
         <Route path="/landing" element={<Landing />} />
-
+        <Route path="/listings" element={<Listings />} />
+        {/* <Route path='/listings' element={<} */}
         </Routes>
       
 

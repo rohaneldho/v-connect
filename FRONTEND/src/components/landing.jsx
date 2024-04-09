@@ -4,6 +4,8 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import CreateIcon from '@mui/icons-material/Create';
 import HistoryIcon from '@mui/icons-material/History';
 import PersonIcon from '@mui/icons-material/Person';
+import ListIcon from '@mui/icons-material/List';
+import { useNavigate } from 'react-router-dom';
 
 function CustomContainer({ icon, text }) {
   return (
@@ -17,6 +19,17 @@ function CustomContainer({ icon, text }) {
 }
 
 function Landing() {
+  
+  const navigate = useNavigate();
+  const handlemakeproj = async(e) => {
+    e.preventDefault();
+    navigate('/makeproj')
+  };
+
+  const handlelistings = async(e)=>{
+    e.preventDefault();
+    navigate('/listings');
+  }
   return (
     <div>
       <div className="hcon flex items-center justify-center h-32 bg-blue-500 text-white font-bold text-3xl">
@@ -28,8 +41,12 @@ function Landing() {
           <NotificationsIcon fontSize="large" />
           Notifications
           </button>
+          <button onClick={handlelistings} >
+          <ListIcon fontSize="large" />
+          Project Listings
+          </button>
 
-          <button>
+          <button onClick={handlemakeproj}>
           <CreateIcon fontSize="large" />
           Host
           </button>
