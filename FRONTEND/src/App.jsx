@@ -5,7 +5,7 @@ import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import LOGIN from './components/login'
 
-
+import SignUp from './components/signUp';
 const App = () => {
   const [token, setToken] = useState(false)
 
@@ -13,8 +13,9 @@ const App = () => {
     <div>
       <Routes>
         <Route path="/" element={<LOGIN />}  />
+        <Route path="/signup" element={<SignUp />} />
         {/* <Route path="/login" element={<Login setToken={setToken} />} />
-        <Route path="/signup" element={<Signup />} />
+        
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/createSchedule" element={<Createschedule />} />
         <Route path="/history" element={<Task />} />
