@@ -47,7 +47,7 @@ export default function SignUp() {
   username,
   email,
   password,
-  campus1: campus // Assuming you want to send the selected campus
+  campus1 // Assuming you want to send the selected campus
 })
 .then(result => console.log(result))
 .catch(err => console.log(err));

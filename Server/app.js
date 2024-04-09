@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname,"public")));
 app.set("view engine","ejs");
 const multer = require('multer');
 const server = http.createServer(app);
-const PORT = process.env.PORT || 34030;
+const PORT = process.env.PORT || 3400;
 
 // Connect to MongoDB
 async function main() {
@@ -70,6 +70,11 @@ app.get('/listings', async (req, res) => {
       console.error('Error fetching project data:', error);
       res.status(500).json({ error: 'Error fetching project data' });
     }
+  });
+  app.get('/clubpost', (req, res) => {
+    Club.find()
+      .then(clubs => res.json(clubs))
+      .catch(err => res.status(400).json('Error: ' + err));
   });
 // Route all other requests to the frontend index.html
 app.get('*', (req, res) => {
@@ -130,9 +135,9 @@ app.post('/makeproj', async (req, res) => {
   
   app.post('/clublisting', upload.single('posterImage'), (req, res) => {
     const newClub = new Club({
-      name: req.body.name,
+      clubName: req.body.clubName,
       type: req.body.type,
-      desc: req.body.desc,
+      description: req.body.description,
       googleFormLink: req.body.googleFormLink,
       posterImage: req.file.buffer,
     });
@@ -141,3 +146,5 @@ app.post('/makeproj', async (req, res) => {
       .then(() => res.json('Club added!'))
       .catch(err => res.status(400).json('Error: ' + err));
   });
+  
+  

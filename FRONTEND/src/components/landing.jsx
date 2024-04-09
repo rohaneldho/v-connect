@@ -6,7 +6,7 @@ import HistoryIcon from '@mui/icons-material/History';
 import PersonIcon from '@mui/icons-material/Person';
 import ListIcon from '@mui/icons-material/List';
 import { useNavigate } from 'react-router-dom';
-
+import {Link } from 'react-router-dom';
 function Landing() {
   const navigate = useNavigate();
 
@@ -19,6 +19,9 @@ function Landing() {
 
   const handleListings = () => {
     navigate('/listings');
+  };
+  const clubpost = () => {
+    navigate('/clubpost');
   };
 
   return (
@@ -35,10 +38,10 @@ function Landing() {
           </div>
       <br/><br/><br/><br/>
       <div className='flex flex-wrap justify-center gap-4 p-4'>
-      <button className='bg-blue-400 p-4 text-white hover:bg-blue-500 rounded-lg w-52' onClick={handleListings}>
+      <Link to='/clubpost'><button className='bg-blue-400 p-4 text-white hover:bg-blue-500 rounded-lg w-52' onClick={clubpost}>
           <NotificationsIcon fontSize="large" className="mr-2" />
           Clubs
-        </button>
+        </button></Link>
         <button className='bg-blue-400 p-4 text-white hover:bg-blue-500 rounded-lg w-52' onClick={handleListings}>
           <ListIcon fontSize="large" className="mr-2" />
           Project Listings

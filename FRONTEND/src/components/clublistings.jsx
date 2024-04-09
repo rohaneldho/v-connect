@@ -29,9 +29,9 @@ function ClubListings() {
   
     // Create a FormData object
     const formData = new FormData();
-    formData.append('name', clubName);
+    formData.append('clubName', clubName);
     formData.append('type', eventType);
-    formData.append('desc', description);
+    formData.append('description', description);
     formData.append('googleFormLink', googleFormLink);
     formData.append('posterImage', logo);
   

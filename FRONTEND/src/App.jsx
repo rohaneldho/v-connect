@@ -12,7 +12,7 @@ import MakeProj from './components/createproject';
 import Listings from './components/listings';
 
 import ClubListings from './components/clublistings';
-
+import Clubpost from './components/clubpost';
 import ClubLogin from './components/clublogin';
 import Frontpage from './components/frontpage';
 const App = () => {
@@ -32,6 +32,7 @@ const App = () => {
         <Route path="/clublisting" element={<ClubListings />} />
 
         <Route path="/clublogin" element={<ClubLogin />} />
+        <Route path="/clubpost" element={<Clubpost />} />
         {/* <Route path='/listings' element={<} */}
         </Routes>
       
