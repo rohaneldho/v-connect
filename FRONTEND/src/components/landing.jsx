@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import CreateIcon from '@mui/icons-material/Create';
 import HistoryIcon from '@mui/icons-material/History';
@@ -7,64 +7,48 @@ import PersonIcon from '@mui/icons-material/Person';
 import ListIcon from '@mui/icons-material/List';
 import { useNavigate } from 'react-router-dom';
 
-function CustomContainer({ icon, text }) {
-  return (
-    <div className="w-1/4 p-4 border border-gray-300 rounded-lg bg-white shadow-md flex items-center justify-center">
-      <div className="mr-4">
-        {icon}
-      </div>
-      <Typography variant="h5">{text}</Typography>
-    </div>
-  );
-}
-
 function Landing() {
-  
   const navigate = useNavigate();
-  const handlemakeproj = async(e) => {
-    e.preventDefault();
-    navigate('/makeproj')
+
+  const handleMakeProject = () => {
+    navigate('/makeproj');
+  };
+  const handleProfile = () => {
+    navigate('/userpage');
   };
 
-  const handlelistings = async(e)=>{
-    e.preventDefault();
+  const handleListings = () => {
     navigate('/listings');
-  }
+  };
+
   return (
     <div>
-      <div className="hcon flex items-center justify-center h-32 bg-blue-500 text-white font-bold text-3xl">
+      <div className="hcon flex items-center justify-center h-32 bg-blue-500 text-white font-bold text-3xl rounded-t-lg">
         Vellore Institute of Technology
       </div>
       <br/><br/><br/><br/>
-        <div>
-          <button >
-          <NotificationsIcon fontSize="large" />
+      <div className='flex flex-wrap justify-center gap-4 p-4'>
+      <button className='bg-blue-400 p-4 text-white hover:bg-blue-500 rounded-lg w-52' onClick={handleListings}>
+          <NotificationsIcon fontSize="large" className="mr-2" />
           Notifications
-          </button>
-          <button onClick={handlelistings} >
-          <ListIcon fontSize="large" />
+        </button>
+        <button className='bg-blue-400 p-4 text-white hover:bg-blue-500 rounded-lg w-52' onClick={handleListings}>
+          <ListIcon fontSize="large" className="mr-2" />
           Project Listings
-          </button>
-
-          <button onClick={handlemakeproj}>
-          <CreateIcon fontSize="large" />
+        </button>
+        <button className='bg-blue-400 p-4 text-white hover:bg-blue-500 rounded-lg w-52' onClick={handleMakeProject}>
+          <CreateIcon fontSize="large" className="mr-2" />
           Host
-          </button>
-
-          <button>
-          <HistoryIcon fontSize="large" />
+        </button>
+        <button className='bg-blue-400 p-4 text-white hover:bg-blue-500 rounded-lg w-52'>
+          <HistoryIcon fontSize="large" className="mr-2" />
           History
-          </button>
-
-          <button>
-          <PersonIcon fontSize="large" />
+        </button> 
+        <button className='bg-blue-400 p-4 text-white hover:bg-blue-500 rounded-lg w-52' onClick={handleProfile}>
+          <PersonIcon fontSize="large" className="mr-2" />
           Profile
-          </button>
-
-        </div>
-        {/* <CustomContainer icon={} text="Host" />
-        <CustomContainer icon={} text="History" />
-        <CustomContainer icon={} text="Profile" /> */}
+        </button>
+      </div>
     </div>
   );
 }
