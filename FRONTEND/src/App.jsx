@@ -4,7 +4,7 @@ import { useState , useEffect } from 'react'
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import LOGIN from './components/login'
-
+import ProfilePage from './components/userPage'
 import SignUp from './components/signUp';
 const App = () => {
   const [token, setToken] = useState(false)
@@ -12,7 +12,7 @@ const App = () => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<LOGIN />}  />
+        <Route path="/" element={<ProfilePage />}  />
         <Route path="/signup" element={<SignUp />} />
         {/* <Route path="/login" element={<Login setToken={setToken} />} />
         
