@@ -21,6 +21,7 @@ const App = () => {
         <Route path="/makeproj" element={<MakeProj />} />
         <Route path="/landing" element={<Landing />} />
         <Route path="/listings" element={<Listings />} />
+        <Route path="/userpage" element={<ProfilePage />} />
         {/* <Route path='/listings' element={<} */}
         </Routes>
       
