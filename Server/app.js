@@ -5,10 +5,11 @@ const passport= require('passport')
 const LocalStrategy=require('passport-local')
 const User=require("./models/user.js")
 const session = require('express-session')
-app.listen(4000,()=>{
-    console.log("port 4000");
-    
+const server = app.listen(0, () => {
+    const port = server.address().port;
+    console.log(`Server is running on port ${port}`);
 });
+
 
 const mongoose = require('mongoose');
 main().

@@ -25,11 +25,16 @@ export default function SignUp() {
   const handleChange = (event) => {
     setCampus(event.target.value);
   };
-
+var username;var password;var email;
 
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    const dat=new FormData(event.target);
+username=dat.get('username');
+email=dat.get('email');
+password=dat.get('password');
+
     axios.post("http://localhost:4000/signup",{username,email,password})
     .then(result=>console.log(result))
     .catch(err=>console.log(err))
