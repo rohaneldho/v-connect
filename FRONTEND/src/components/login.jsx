@@ -18,17 +18,28 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 const defaultTheme = createTheme();
 
 export default function LOGIN() {
+  const [username,setUsername]= React.useState('');
+  const [password,setPassword] = React.useState('');
   const [showPassword, setShowPassword] = React.useState(false);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
     console.log({
-      regno: data.get('Registration Number'),
-      password: data.get('password'),
+      'regno': username,
+      'password': password
     });
   };
+  const handleUsername = (e) => {
+    setUsername(e.target.value)
+    //console.log(e.target.value)
 
+  };
+  const handlePassword = (e) => {
+    setPassword(e.target.value)
+    //console.log(e.target.value)
+
+  };
   return (
     <ThemeProvider theme={defaultTheme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
@@ -68,15 +79,17 @@ export default function LOGIN() {
             </Typography>
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
               <TextField
+              onChange={handleUsername}
                 margin="normal"
                 required
                 fullWidth
-                id="regno"
-                label="Registration Number"
-                name="Registration Number"
+                id="username"
+                label="Username"
+                name="Username"
                 autoFocus
               />
               <TextField
+              onChange={handlePassword}
                 margin="normal"
                 required
                 fullWidth
