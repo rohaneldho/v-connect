@@ -28,7 +28,7 @@ export default function ClubLogin() {
     await axios.post("http://localhost:3400/login", { username, password })
       .then(result => {
         if (result.data.status === "success") {
-          navigate('/landing');
+          navigate('/clublistings');
         }
       })
       .catch(err => console.log(err));
