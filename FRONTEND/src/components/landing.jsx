@@ -7,11 +7,11 @@ import PersonIcon from '@mui/icons-material/Person';
 
 function CustomContainer({ icon, text }) {
   return (
-    <div className="container1 m-4 border-2 border-black w-64 bg-blue-500 text-white flex flex-col items-center justify-center">
-      <div className="c1">
+    <div className="w-1/4 p-4 border border-gray-300 rounded-lg bg-white shadow-md flex items-center justify-center">
+      <div className="mr-4">
         {icon}
-        <Typography variant="h5">{text}</Typography>
       </div>
+      <Typography variant="h5">{text}</Typography>
     </div>
   );
 }
@@ -23,16 +23,33 @@ function Landing() {
         Vellore Institute of Technology
       </div>
       <br/><br/><br/><br/>
-      <Container className="container flex flex-wrap justify-center" maxWidth="xl">
-        <CustomContainer icon={<NotificationsIcon />} text="Notifications" />
-        <CustomContainer icon={<CreateIcon />} text="Host" />
-        <CustomContainer icon={<HistoryIcon />} text="History" />
-        <CustomContainer icon={<PersonIcon />} text="Profile" />
-      </Container>
+        <div>
+          <button >
+          <NotificationsIcon fontSize="large" />
+          Notifications
+          </button>
+
+          <button>
+          <CreateIcon fontSize="large" />
+          Host
+          </button>
+
+          <button>
+          <HistoryIcon fontSize="large" />
+          History
+          </button>
+
+          <button>
+          <PersonIcon fontSize="large" />
+          Profile
+          </button>
+
+        </div>
+        {/* <CustomContainer icon={} text="Host" />
+        <CustomContainer icon={} text="History" />
+        <CustomContainer icon={} text="Profile" /> */}
     </div>
   );
 }
-
-
 
 export default Landing;
