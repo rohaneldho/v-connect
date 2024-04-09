@@ -37,7 +37,7 @@ function Landing() {
       <div className='flex flex-wrap justify-center gap-4 p-4'>
       <button className='bg-blue-400 p-4 text-white hover:bg-blue-500 rounded-lg w-52' onClick={handleListings}>
           <NotificationsIcon fontSize="large" className="mr-2" />
-          Notifications
+          Clubs
         </button>
         <button className='bg-blue-400 p-4 text-white hover:bg-blue-500 rounded-lg w-52' onClick={handleListings}>
           <ListIcon fontSize="large" className="mr-2" />

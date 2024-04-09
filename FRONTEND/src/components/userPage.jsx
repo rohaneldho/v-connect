@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import XIcon from "@mui/icons-material/X";
@@ -6,12 +6,12 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import CallIcon from "@mui/icons-material/Call";
 
 export default function ProfilePage() {
-  const [editing1, setEditing1] = useState(false);
-  const [phone, setPhone] = useState("9207995728");
-  const [instagram, setInstagram] = useState("www.instagram.com");
-  const [twitter, setTwitter] = useState("www.twitter.com");
-  const [linkedIn, setLinkedIn] = useState("www.LinkedIn.com");
-  const [github, setGitHub] = useState("www.GITHUB.com");
+  const [editing1, setEditing1] = React.useState(false);
+  const [phone, setPhone] = React.useState("9207995728");
+  const [instagram, setInstagram] = React.useState("www.instagram.com");
+  const [twitter, setTwitter] = React.useState("www.twitter.com");
+  const [linkedIn, setLinkedIn] = React.useState("www.LinkedIn.com");
+  const [github, setGitHub] = React.useState("www.GITHUB.com");
 
   const [editing2, setEditing2] = useState(false);
   const [fullName, setFullName] = useState("Barack Obama");
@@ -31,31 +31,6 @@ export default function ProfilePage() {
 
   const handleEdit2 = () => {
     setEditing2(!editing2);
-  };
-
-  // Function to open the project popup
-  const openPopup = () => {
-    setShowPopup(true);
-  };
-
-  // Function to close the project popup
-  const closePopup = () => {
-    setShowPopup(false);
-  };
-
-  // Function to add a new project
-  const addProject = () => {
-    const newProject = {
-      name: projectName,
-      description: projectDescription,
-    };
-    setProjects([...projects, newProject]);
-    // Clear input fields
-    setProjectName("");
-    setProjectDescription("");
-
-    // Close the popup
-    closePopup();
   };
 
   return (

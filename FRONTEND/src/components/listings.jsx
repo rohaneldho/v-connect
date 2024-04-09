@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Project({ project }) {
   const { name, desc, type, num } = project;
-
   return (
     <div className="flex flex-col md:flex-row items-start md:items-center bg-white rounded-lg p-6 mb-4 shadow-md">
       <div className="flex-1">
@@ -17,7 +17,9 @@ function Project({ project }) {
 }
 
 function Listings() {
+  const navigate = useNavigate();
   const [projects, setProjects] = useState([]);
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     // Fetch project data from backend
@@ -41,15 +43,38 @@ function Listings() {
   
 
   return (
-    <div className="bg-gray-100 min-h-screen flex justify-center items-center">
+    <>
+          <div className="flex flex-col">
+            <div className="main  flex justify-between items-center w-screen h-[7rem] bg-gray-800">
+              <img onClick={handleimgclick} className="h-[7rem]" src="src\assets\vit.png" alt="VIT Logo" />
+              <h1 className="Title text-4xl font-bold text-white">
+                Vellore Institute Of Technology
+              </h1>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+
+     <div className="bg-gray-100 min-h-screen flex justify-center items-center">
+      
       <div className="container text-center">
         <h1 className="text-6xl font-bold mb-12 text-blue-600">Project Postings</h1>
-        {projects.map(project => (
+        <input
+          type="text"
+          placeholder="Search projects by type..."
+          value={search}
+          onChange={handleSearchChange}
+          className="mb-4 px-3 py-2 border rounded-md"
+        />
+        {filteredProjects.map(project => (
           <Project key={project._id} project={project} />
         ))}
       </div>
     </div>
+    </>
+   
   );
 }
 
 export default Listings;
+

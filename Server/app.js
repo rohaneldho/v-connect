@@ -6,15 +6,16 @@ const mongoose = require('mongoose');
 const router = express.Router();
 const User = require("./models/user.js");
 const Project = require("./models/project.js");
+const Club= require("./models/club.js");
 const passport = require('passport');
 const session = require('express-session')
 const LocalStrategy=require('passport-local')
 app.set("views", path.join(__dirname,"views"));
 app.use(express.static(path.join(__dirname,"public")));
 app.set("view engine","ejs");
-
+const multer = require('multer');
 const server = http.createServer(app);
-const PORT = process.env.PORT || 3400;
+const PORT = process.env.PORT || 34030;
 
 // Connect to MongoDB
 async function main() {
@@ -120,5 +121,23 @@ app.post('/makeproj', async (req, res) => {
       res.status(500).send('Error occurred during project creation'); // Send an error response back to the client
     }
   });
+  const upload = multer({
+    storage: multer.memoryStorage(),
+    limits: {
+      fileSize: 5 * 1024 * 1024, // limit to 5MB
+    },
+  });
   
+  app.post('/clublisting', upload.single('posterImage'), (req, res) => {
+    const newClub = new Club({
+      name: req.body.name,
+      type: req.body.type,
+      desc: req.body.desc,
+      googleFormLink: req.body.googleFormLink,
+      posterImage: req.file.buffer,
+    });
   
+    newClub.save()
+      .then(() => res.json('Club added!'))
+      .catch(err => res.status(400).json('Error: ' + err));
+  });
