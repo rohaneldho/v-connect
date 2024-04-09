@@ -2,10 +2,11 @@
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
-import { Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LOGIN from './components/login'
 import ProfilePage from './components/userPage'
 import SignUp from './components/signUp';
+import Landing from './components/landing'
 const App = () => {
   // const [token, setToken] = useState(false)
 
@@ -15,6 +16,10 @@ const App = () => {
         <Route path="/" element={<ProfilePage />}  />       
          <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<LOGIN />} />
+        <Route path="/landing" element={<Landing />} />
+
+        </Routes>
+      
 
         {/* <Route path="/login" element={<Login setToken={setToken} />} />
         
@@ -25,7 +30,7 @@ const App = () => {
         <Route path="/setAdmin" element={<SetAdmin />} />
         <Route path="/remove" element={<Remove />} />
         <Route path="/uploadFile" element={<Upload />} /> */}
-      </Routes>
+      
     </div>
   )
 }

@@ -12,6 +12,7 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
 
@@ -22,14 +23,13 @@ export default function LOGIN() {
   const [username,setUsername]= React.useState('');
   const [password,setPassword] = React.useState('');
   const [showPassword, setShowPassword] = React.useState(false);
+  const [flag,setFlag] = React.useState(false);
 
   const handleSubmit = async(e) => {
+    const navigate = useNavigate();
+    console.log('ewrfvebg');    
     e.preventDefault();
     
-    console.log({
-      'regno': username,
-      'password': password
-    });
     
     await axios.post("http://localhost:3400/login", {
       username,
@@ -38,6 +38,7 @@ export default function LOGIN() {
     .then(result => {
       console.log(result);
       if (result.data.status === "success") {
+       
         console.log("i got data from backend")
       } else {
         console.log("nthng recieved")
@@ -123,6 +124,7 @@ export default function LOGIN() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
+                onSubmit={handleSubmit}
               >
                 Sign In
               </Button>
