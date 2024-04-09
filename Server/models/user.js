@@ -12,7 +12,7 @@ const User = new Schema({
         type:String,
         required:true,
     },
-    campus:{
+    campus1:{
         type:String,
         required:true,
     },

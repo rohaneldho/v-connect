@@ -13,6 +13,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+import axios from 'axios';
 
 
 const defaultTheme = createTheme();
@@ -22,14 +23,23 @@ export default function LOGIN() {
   const [password,setPassword] = React.useState('');
   const [showPassword, setShowPassword] = React.useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
+    
     console.log({
       'regno': username,
       'password': password
-    });
-  };
+    });await axios.post("http://localhost:3400/login", {
+      
+      username,
+      
+      password,
+      // Assuming you want to send the selected campus
+    })
+    .then(result => console.log(result))
+    .catch(err => console.log(err));
+        
+      };
   const handleUsername = (e) => {
     setUsername(e.target.value)
     //console.log(e.target.value)

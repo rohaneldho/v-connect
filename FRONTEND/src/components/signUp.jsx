@@ -14,26 +14,43 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
+
 import Select from '@mui/material/Select';
-import axios from "axios";
+import axios from 'axios';
 const defaultTheme = createTheme();
 var username;
-var password;var email;var campus1;var fname;var lname;
+var password;var email;var campus1;var firstname;var lastname;
 export default function SignUp() {
   const [showPassword, setShowPassword] = React.useState(false);
   const [campus, setCampus] = React.useState('');
   const handleChange = (event) => {
     setCampus(event.target.value);
   };
-var username;var password;var email;
 
 
-  const handleSubmit = (event) => {
+
+  const handleSubmit = async(event) => {
     event.preventDefault();
-    axios.post("http://localhost:4000/signup",{username,email,password})
-    .then(result=>console.log(result))
-    .catch(err=>console.log(err))
+    const data=new FormData(event.target);
+    email=data.get('email');
+    password=data.get('password');
+    username=data.get('username');
+    firstname=data.get('firstName');
+    lastname=data.get('lastName');
+    campus1=data.get('campus');
+    console.log('f3ew');
+    console.log(email,password,username,firstname,lastname,campus1);
+   
+    await axios.post("http://localhost:3400/signup", {
+  firstname,
+  lastname,
+  username,
+  email,
+  password,
+  campus1: campus // Assuming you want to send the selected campus
+})
+.then(result => console.log(result))
+.catch(err => console.log(err));
     
   };
 

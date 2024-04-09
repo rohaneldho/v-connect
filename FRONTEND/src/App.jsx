@@ -1,4 +1,4 @@
-import { useState , useEffect } from 'react'
+// import { useState , useEffect } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
@@ -7,13 +7,15 @@ import LOGIN from './components/login'
 
 import SignUp from './components/signUp';
 const App = () => {
-  const [token, setToken] = useState(false)
+  // const [token, setToken] = useState(false)
 
   return (
     <div>
       <Routes>
-        <Route path="/" element={<LOGIN />}  />
+        
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<LOGIN />} />
+
         {/* <Route path="/login" element={<Login setToken={setToken} />} />
         
         <Route path="/dashboard" element={<Dashboard />} />
