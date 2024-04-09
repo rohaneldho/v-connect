@@ -18,7 +18,8 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import axios from "axios";
 const defaultTheme = createTheme();
-
+var username;
+var password;var email;var campus1;var fname;var lname;
 export default function SignUp() {
   const [showPassword, setShowPassword] = React.useState(false);
   const [campus, setCampus] = React.useState('');
@@ -30,11 +31,6 @@ var username;var password;var email;
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const dat=new FormData(event.target);
-username=dat.get('username');
-email=dat.get('email');
-password=dat.get('password');
-
     axios.post("http://localhost:4000/signup",{username,email,password})
     .then(result=>console.log(result))
     .catch(err=>console.log(err))
@@ -108,6 +104,7 @@ password=dat.get('password');
               <InputLabel id="campus">Campus</InputLabel>
         <Select
         fullWidth
+        name='campus'
           labelId="campus"
           id="campus-select"
           value={campus}
