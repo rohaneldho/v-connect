@@ -12,12 +12,8 @@ const App = () => {
   return (
     <div>
       <Routes>
-<<<<<<< HEAD
-        
-=======
-        <Route path="/" element={<ProfilePage />}  />
->>>>>>> 6c6b34e5acdc3688f1bc115ad1fd0be1c49d0ce1
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/" element={<ProfilePage />}  />       
+         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<LOGIN />} />
 
         {/* <Route path="/login" element={<Login setToken={setToken} />} />

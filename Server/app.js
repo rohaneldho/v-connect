@@ -77,7 +77,9 @@ app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()))
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
 app.post("/login", passport.authenticate("local", { failureRedirect: "/login", failureFlash: true }), async(req, res) => {
-    res.send("Welcome");
+    // Send a response to the frontend upon successful authentication
+    res.json({ status: "success", message: "Welcome" });
     console.log("Hi, Welcome!!!");
 });

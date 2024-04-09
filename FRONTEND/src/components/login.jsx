@@ -29,17 +29,22 @@ export default function LOGIN() {
     console.log({
       'regno': username,
       'password': password
-    });await axios.post("http://localhost:3400/login", {
-      
+    });
+    
+    await axios.post("http://localhost:3400/login", {
       username,
-      
       password,
-      // Assuming you want to send the selected campus
     })
-    .then(result => console.log(result))
+    .then(result => {
+      console.log(result);
+      if (result.data.status === "success") {
+        console.log("i got data from backend")
+      } else {
+        console.log("nthng recieved")
+      }
+    })
     .catch(err => console.log(err));
-        
-      };
+  };
   const handleUsername = (e) => {
     setUsername(e.target.value)
     //console.log(e.target.value)
