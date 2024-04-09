@@ -28,7 +28,18 @@ export default function ProfilePage() {
   };
 
   return (
-    <section className="bg-gray-200 py-10">
+    
+    <section className="bg-gray-200">
+      <div className="flex flex-col">
+            <div className="main  flex justify-between items-center w-screen h-[7rem] bg-gray-800">
+              <img className="h-[7rem]" src="src\assets\vit.png" alt="VIT Logo" />
+              <h1 className="Title text-4xl font-bold text-white">
+                Vellore Institute Of Technology
+              </h1>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
       <div className="container mx-auto">
 
         <div className="flex flex-wrap">

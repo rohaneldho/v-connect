@@ -9,6 +9,7 @@ import SignUp from './components/signUp';
 import Landing from './components/landing'
 import MakeProj from './components/createproject';
 import Listings from './components/listings';
+import ClubLogin from './components/clublogin';
 const App = () => {
   // const [token, setToken] = useState(false)
 
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/landing" element={<Landing />} />
         <Route path="/listings" element={<Listings />} />
         <Route path="/userpage" element={<ProfilePage />} />
+        <Route path="/clublogin" element={<ClubLogin />} />
         {/* <Route path='/listings' element={<} */}
         </Routes>
       
