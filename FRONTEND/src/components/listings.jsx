@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 function Project({ project }) {
   const { name, desc, type, num } = project;
-
   return (
     <div className="flex flex-col md:flex-row items-start md:items-center bg-white rounded-lg p-6 mb-4 shadow-md">
       <div className="flex-1">
@@ -18,6 +17,7 @@ function Project({ project }) {
 
 function Listings() {
   const [projects, setProjects] = useState([]);
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     // Fetch project data from backend
@@ -37,14 +37,27 @@ function Listings() {
       })
       .catch(error => console.error('Error fetching project data:', error));
   }, []);
-  
-  
+
+  const handleSearchChange = (e) => {
+    setSearch(e.target.value);
+  };
+
+  const filteredProjects = projects.filter(project =>
+    project.type.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <div className="bg-gray-100 min-h-screen flex justify-center items-center">
       <div className="container text-center">
         <h1 className="text-6xl font-bold mb-12 text-blue-600">Project Postings</h1>
-        {projects.map(project => (
+        <input
+          type="text"
+          placeholder="Search projects by type..."
+          value={search}
+          onChange={handleSearchChange}
+          className="mb-4 px-3 py-2 border rounded-md"
+        />
+        {filteredProjects.map(project => (
           <Project key={project._id} project={project} />
         ))}
       </div>
@@ -53,3 +66,4 @@ function Listings() {
 }
 
 export default Listings;
+
