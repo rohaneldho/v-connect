@@ -16,7 +16,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-
+import axios from "axios";
 const defaultTheme = createTheme();
 
 export default function SignUp() {
@@ -30,11 +30,10 @@ export default function SignUp() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    axios.post("http://localhost:4000/signup",{username,email,password})
+    .then(result=>console.log(result))
+    .catch(err=>console.log(err))
+    
   };
 
   return (
@@ -85,7 +84,7 @@ export default function SignUp() {
                   fullWidth
                   id="regno"
                   label="Registration Number"
-                  name="Registration Number"
+                  name="username"
                 />
               </Grid>
 
