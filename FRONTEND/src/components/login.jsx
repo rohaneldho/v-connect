@@ -13,29 +13,16 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
-// TODO remove, this demo shouldn't need to reset the theme.
-
 const defaultTheme = createTheme();
 
 export default function LOGIN() {
+  const [showPassword, setShowPassword] = React.useState(false);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
-      email: data.get('email'),
+      regno: data.get('Registration Number'),
       password: data.get('password'),
     });
   };
@@ -69,16 +56,11 @@ export default function LOGIN() {
             }}
           >
             <div className='mb-10'>
-            <Typography component="h1" variant="h3">
-              <p className='text-[#262829]'>Welcome to V-Connect </p>
-          </Typography>
-
+              <Typography component="h1" variant="h3">
+                <p className='text-[#262829]'>Welcome to V-Connect </p>
+              </Typography>
             </div>
-          
 
-            {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-              <LockOutlinedIcon />
-            </Avatar> */}
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
@@ -87,10 +69,9 @@ export default function LOGIN() {
                 margin="normal"
                 required
                 fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
+                id="regno"
+                label="Registration Number"
+                name="Registration Number"
                 autoFocus
               />
               <TextField
@@ -99,13 +80,13 @@ export default function LOGIN() {
                 fullWidth
                 name="password"
                 label="Password"
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 id="password"
                 autoComplete="current-password"
               />
               <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
+                control={<Checkbox onClick={() => setShowPassword(!showPassword)} color="primary" />}
+                label="Show password"
               />
               <Button
                 type="submit"
