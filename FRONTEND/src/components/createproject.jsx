@@ -1,6 +1,10 @@
 import React from "react";
 import axios from 'axios';
+import { useNavigate } from "react-router";
+// import { useNavigate } from 'react-router-dom';
+
 const MakeProj = () => {
+  const navigate=useNavigate();
   
 
 const handleSubmit = (e) => {
@@ -30,13 +34,24 @@ const handleSubmit = (e) => {
       console.error('Error:', error);
     });
 };
+const handleimgclick=()=>{
+  navigate('/landing')
+}
+
 
 
   return (
     <div>
-      <header className="bg-gray-800 text-white py-4">
-        <h1 className="text-center">Club Projects</h1>
-      </header>
+ <div className="flex flex-col">
+            <div className="main  flex justify-between items-center w-screen h-[7rem] bg-gray-800">
+              <img onClick={handleimgclick}  className="h-[7rem]" src="src\assets\vit.png" alt="VIT Logo" />
+              <h1 className="Title text-4xl font-bold text-white">
+                Vellore Institute Of Technology
+              </h1>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
       <main className="p-4">
         <section className="post-project max-w-xl mx-auto">
           <h2 className="text-lg font-bold mb-4">Post a Project</h2>
@@ -102,9 +117,6 @@ const handleSubmit = (e) => {
           </form>
         </section>
       </main>
-      <footer className="bg-gray-800 text-white py-2 text-center fixed bottom-0 w-full">
-        <p>&copy; 2024 Club Projects</p>
-      </footer>
     </div>
   );
 };

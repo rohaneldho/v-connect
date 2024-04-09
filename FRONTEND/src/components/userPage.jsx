@@ -4,8 +4,10 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import XIcon from '@mui/icons-material/X';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import CallIcon from '@mui/icons-material/Call';
+import { useNavigate } from 'react-router';
 
 export default function ProfilePage() {
+  const navigate=useNavigate();
   const [editing1, setEditing1] = React.useState(false);
   const [phone, setPhone] = React.useState('9207995728');
   const [instagram, setInstagram] = React.useState('www.instagram.com');
@@ -26,13 +28,17 @@ export default function ProfilePage() {
   const handleEdit2 = () => {
     setEditing2(!editing2);
   };
-
+  const handleimgclick=()=>{
+    navigate('/landing')
+  }
+  
+  
   return (
     
     <section className="bg-gray-200">
       <div className="flex flex-col">
             <div className="main  flex justify-between items-center w-screen h-[7rem] bg-gray-800">
-              <img className="h-[7rem]" src="src\assets\vit.png" alt="VIT Logo" />
+              <img onClick={handleimgclick} className="h-[7rem]" src="src\assets\vit.png" alt="VIT Logo" />
               <h1 className="Title text-4xl font-bold text-white">
                 Vellore Institute Of Technology
               </h1>

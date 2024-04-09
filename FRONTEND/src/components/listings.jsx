@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Project({ project }) {
   const { name, desc, type, num } = project;
@@ -17,6 +18,7 @@ function Project({ project }) {
 }
 
 function Listings() {
+  const navigate = useNavigate();
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
@@ -37,11 +39,28 @@ function Listings() {
       })
       .catch(error => console.error('Error fetching project data:', error));
   }, []);
+
+  const handleimgclick=()=>{
+    navigate('/landing')
+  }
   
   
 
   return (
-    <div className="bg-gray-100 min-h-screen flex justify-center items-center">
+    <>
+          <div className="flex flex-col">
+            <div className="main  flex justify-between items-center w-screen h-[7rem] bg-gray-800">
+              <img onClick={handleimgclick} className="h-[7rem]" src="src\assets\vit.png" alt="VIT Logo" />
+              <h1 className="Title text-4xl font-bold text-white">
+                Vellore Institute Of Technology
+              </h1>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+
+     <div className="bg-gray-100 min-h-screen flex justify-center items-center">
+      
       <div className="container text-center">
         <h1 className="text-6xl font-bold mb-12 text-blue-600">Project Postings</h1>
         {projects.map(project => (
@@ -49,6 +68,8 @@ function Listings() {
         ))}
       </div>
     </div>
+    </>
+   
   );
 }
 

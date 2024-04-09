@@ -3,6 +3,7 @@
 // import viteLogo from '/vite.svg'
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import LOGIN from './components/login'
 import ProfilePage from './components/userPage'
 import SignUp from './components/signUp';
@@ -10,13 +11,14 @@ import Landing from './components/landing'
 import MakeProj from './components/createproject';
 import Listings from './components/listings';
 import ClubLogin from './components/clublogin';
+import Frontpage from './components/frontpage';
 const App = () => {
   // const [token, setToken] = useState(false)
 
   return (
     <div>
       <Routes>
-      {/* <Route path="/" element={<MakeProj />} />     */}
+      <Route path="/" element={<Frontpage />} />    
         <Route path="/login" element={<LOGIN />}  />   
          <Route path="/signup" element={<SignUp />} />
         <Route path="/makeproj" element={<MakeProj />} />
