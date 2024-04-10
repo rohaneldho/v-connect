@@ -44,7 +44,7 @@ const handleimgclick=()=>{
     <div>
  <div className="flex flex-col">
             <div className="main  flex justify-between items-center w-screen h-[7rem] bg-gray-800">
-              <img onClick={handleimgclick}  className="h-[7rem]" src="src\assets\vit.png" alt="VIT Logo" />
+              <img onClick={handleimgclick}  className="h-[7rem]" src="https://findlogovector.com/wp-content/uploads/2022/05/vellore-institute-of-technology-vit-logo-vector-2022.png" alt="VIT Logo" />
               <h1 className="Title text-4xl font-bold text-white">
                 Vellore Institute Of Technology
               </h1>
