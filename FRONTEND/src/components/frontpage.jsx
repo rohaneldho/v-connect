@@ -139,7 +139,6 @@ const Frontpage = () => {
               alt="GitHub Logo"
               className="w-8 h-8"
             />
-            hh
           </a>
           <a href="https://instagram.com">
             <img
