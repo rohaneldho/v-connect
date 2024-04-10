@@ -4,9 +4,12 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import XIcon from "@mui/icons-material/X";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import CallIcon from "@mui/icons-material/Call";
+import { useNavigate } from 'react-router-dom';
 
 export default function ProfilePage() {
+  const navigate=useNavigate();
   const [editing1, setEditing1] = React.useState(false);
+
   const [phone, setPhone] = React.useState("9207995728");
   const [instagram, setInstagram] = React.useState("www.instagram.com");
   const [twitter, setTwitter] = React.useState("www.twitter.com");
@@ -20,7 +23,7 @@ export default function ProfilePage() {
   const [skills, setSkills] = React.useState("C,C++");
 
   // State variables for project popup
-  const [showPopup, setShowPopup] = React.useState(true);
+  const [showPopup, setShowPopup] = React.useState(false);
   const [projectName, setProjectName] = React.useState("");
   const [projectDescription, setProjectDescription] = React.useState("");
   const [projects, setProjects] = React.useState([]);
@@ -34,13 +37,37 @@ export default function ProfilePage() {
   };
   const handleimgclick=()=>{
     navigate('/landing')
-  }
+  };
+  const openPopup = () => {
+    setShowPopup(true);
+  };
+
+  // Function to close the popup
+  const closePopup = () => {
+    setShowPopup(false);
+  };
+  const addProject = () => {
+    // Add the project to the projects array
+    const newProject = { name: projectName, description: projectDescription };
+    setProjects([...projects, newProject]);
+
+    // Clear the input fields
+    setProjectName("");
+    setProjectDescription("");
+
+    // Close the popup
+    closePopup();
+  };
 
   return (
     <section className="bg-gray-200">
       <div className="flex flex-col">
         <div className="main  flex justify-between items-center w-screen h-[7rem] bg-gray-800">
-          <img className="h-[7rem]" onClick={handleimgclick} src="src\assets\vit.png" alt="VIT Logo" />
+          <button onClick={handleimgclick}>
+          <img className="h-[7rem]"  src="https://findlogovector.com/wp-content/uploads/2022/05/vellore-institute-of-technology-vit-logo-vector-2022.png" alt="VIT Logo" />
+
+          </button>
+          
           <h1 className="Title text-4xl font-bold text-white">
             Vellore Institute Of Technology
           </h1>
@@ -55,7 +82,7 @@ export default function ProfilePage() {
             <div className="bg-white rounded-md p-4 m-10">
               {/* Profile Photo (Put the link here) */}
               <img
-                src="src\assets\Barack-Obama.webp"
+                src="https://upload.wikimedia.org/wikipedia/commons/8/8d/President_Barack_Obama.jpg"
                 alt="avatar"
                 className="rounded-full mx-auto mb-4"
                 style={{ width: "150px" }}
@@ -248,7 +275,8 @@ export default function ProfilePage() {
 
             <div className="bg-white rounded-md h-[23rem] p-4 mb-4">
               PROJECTS
-              <button className="btn btn-primary" onClick={openPopup}>
+              <br />
+              <button className="btn btn-primary bg-blue-200 px-5 py-3 m-2 rounded-xl" onClick={openPopup}>
                 Add Project
               </button>
               <div className="projcontainer">
@@ -273,8 +301,7 @@ export default function ProfilePage() {
         </div>
       </div>
 
-      {/* {showPopup && ( */}
-      {(
+      {showPopup && (
         <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
           <div className="bg-white p-4 rounded-md">
             <h2 className="text-xl font-semibold mb-4">Add Project</h2>
