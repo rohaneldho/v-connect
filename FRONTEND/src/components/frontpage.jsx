@@ -7,26 +7,41 @@ const Frontpage = () => {
   return (
     <div>
       {/* Menu Bar */}
-      <div className="bg-gray-800 p-4">
-        <div className="container mx-auto flex justify-between items-center">
-          <div>
-            <img src="https://chennai.vit.ac.in/wp-content/uploads/2024/01/vit-logo.png" alt="VIT Logo" className="w-30 h-auto" />
+      <div className="flex flex-col">
+            <div className="main  flex justify-between items-center w-screen h-[7rem] bg-gray-800">
+              <img className="h-[7rem]"  src="https://findlogovector.com/wp-content/uploads/2022/05/vellore-institute-of-technology-vit-logo-vector-2022.png" alt="VIT Logo" />
+              <h1 className="Title text-4xl font-bold text-white">
+                Vellore Institute Of Technology
+              </h1>
+              <div className='mr-10'>
+              <Link to="/login" className="block text-white hover:text-gray-300">Student Sign In</Link>
+              <Link to="/clublogin" className="block text-white hover:text-gray-300">Club Sign In</Link>
+              <Link to="/signup" className="text-white hover:text-gray-300">Student Sign Up</Link>
+              </div>
+            </div>
           </div>
-          <div className="text-white">
-            <ul className="flex space-x-8"> {/* Increased space between menu items */}
-              <li>
-                    <Link to="/login" className="block text-white hover:text-gray-300">Student Sign In</Link>
-              </li>
-              <li>
-                    <Link to="/clublogin" className="block text-white hover:text-gray-300">Club Sign In</Link>
-              </li>
-              <li>
-                <Link to="/signup" className="hover:text-gray-300">Student Sign Up</Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      
+      {/* <div className="bg-gray-800">
+  <div className="container mx-auto flex justify-start items-center">
+    <div className='justify-start'>  <img src="https://chennai.vit.ac.in/wp-content/uploads/2024/01/vit-logo.png" alt="VIT Logo" className="w-30 h-auto" />
+    </div>
+    <div className="text-white ml-[50rem]">
+      <ul className="flex justify-end space-x-8"> 
+        <li>
+          <Link to="/login" className="block text-white hover:text-gray-300">Student Sign In</Link>
+        </li>
+        <li>
+          <Link to="/clublogin" className="block text-white hover:text-gray-300">Club Sign In</Link>
+        </li>
+        <li>
+          <Link to="/signup" className="hover:text-gray-300">Student Sign Up</Link>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div> */}
+
+
 
       {/* Main Content */}
       <div className="main-content p-4">
