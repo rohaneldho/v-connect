@@ -10,7 +10,7 @@ const Frontpage = () => {
       <div className="bg-gray-800 p-4">
         <div className="container mx-auto flex justify-between items-center">
           <div>
-            <img src="https://chennai.vit.ac.in/wp-content/uploads/2024/01/vit-logo.png" alt="VIT Logo" className="w-20 h-auto" />
+            <img src="https://chennai.vit.ac.in/wp-content/uploads/2024/01/vit-logo.png" alt="VIT Logo" className="w-30 h-auto" />
           </div>
           <div className="text-white">
             <ul className="flex space-x-8"> {/* Increased space between menu items */}
@@ -34,7 +34,7 @@ const Frontpage = () => {
         <div className="grid grid-cols-2 gap-4">
           {/* Box 1: Project Listings */}
           <div className="box bg-white rounded-lg shadow-md overflow-hidden">
-            <img src="https://static.toiimg.com/thumb/msid-104145326,width-1280,height-720,resizemode-72/104145326.jpg" alt="Project Listings" className="w-full h-auto" />
+            <img src="https://static.toiimg.com/thumb/msid-104145326,width-1280,height-720,resizemode-72/104145326.jpg" alt="Project Listings" className="w-[100rem] h-[25rem]" />
             <div className="p-4">
               <h2 className="text-xl font-semibold mb-2">Project Listings</h2>
               <p className="text-gray-600">Browse through project listings to find exciting 
@@ -44,7 +44,7 @@ const Frontpage = () => {
           </div>
           {/* Box 2: Club */}
           <div className="box bg-white rounded-lg shadow-md overflow-hidden">
-            <img src="https://pbs.twimg.com/media/CLjE6ESUcAAosp0.jpg" alt="Club" className="w-full h-auto" />
+            <img src="https://pbs.twimg.com/media/CLjE6ESUcAAosp0.jpg" alt="Club" className="w-[100rem] h-[25rem]" />
             <div className="p-4">
               <h2 className="text-xl font-semibold mb-2">Club</h2>
               <p className="text-gray-600">Explore the vibrant tapestry of student life at 
@@ -56,7 +56,7 @@ const Frontpage = () => {
           </div>
           {/* Box 3: Events */}
           <div className="box bg-white rounded-lg shadow-md overflow-hidden">
-            <img src="https://vit.ac.in/system/files/DSC04178%20copy.jpg" alt="Events" className="w-full h-auto" />
+            <img src="https://vit.ac.in/system/files/DSC04178%20copy.jpg" alt="Events" className="w-[100rem] h-[25rem]" />
             <div className="p-4">
               <h2 className="text-xl font-semibold mb-2">Events</h2>
               <p className="text-gray-600">Find out about upcoming events. Discover a range of events that cater to your interests and passions. From workshops to seminars, there's something for everyone. 
@@ -65,7 +65,7 @@ const Frontpage = () => {
           </div>
           {/* Box 4: Chat Connect */}
           <div className="box bg-white rounded-lg shadow-md overflow-hidden">
-            <img src="https://www.qschina.cn/sites/default/files/profiles-slideshow/27-995a9006-copy2.jpg" alt="Chat Connect" className="w-full h-auto" />
+            <img src="https://www.qschina.cn/sites/default/files/profiles-slideshow/27-995a9006-copy2.jpg" alt="Chat Connect" className="w-[100rem] h-[25rem]" />
             <div className="p-4">
               <h2 className="text-xl font-semibold mb-2">Chat Connect</h2>
               <p className="text-gray-600">Your go-to platform for staying connected with fellow VITians. 
