@@ -50,6 +50,12 @@ function Listings() {
   const handleimgclick = async(e) => {
     navigate('/landing');
   }
+  const handleimgclick=()=>{
+    navigate('/landing')
+  }
+  
+  
+  
 
   return (
     <>
