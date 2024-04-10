@@ -32,7 +32,7 @@ function Landing() {
     <div>
       <div className="flex flex-col">
             <div className="main  flex justify-between items-center w-screen h-[7rem] bg-gray-800">
-              <img className="h-[7rem]" onClick={handleimgclick} src="src\assets\vit.png" alt="VIT Logo" />
+              <img className="h-[7rem]" onClick={handleimgclick} src="https://findlogovector.com/wp-content/uploads/2022/05/vellore-institute-of-technology-vit-logo-vector-2022.png" alt="VIT Logo" />
               <h1 className="Title text-4xl font-bold text-white">
                 Vellore Institute Of Technology
               </h1>
