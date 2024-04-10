@@ -29,7 +29,10 @@ const PeopleList = () => {
   const handleimgclick = async(e) => {
     navigate('/landing');
   }
-
+  const handlePersonClick = async (person) => {
+    // Navigate to the user's details page
+    navigate(`/userdetails/${person.fullName}`);
+  }
   return (
     <div style={{ backgroundColor: '#e1f5fe', minHeight: '100vh', padding: '0px', margin: 0 }}>
       <div className="flex flex-col">
@@ -47,7 +50,7 @@ const PeopleList = () => {
       <input type="text" value={searchSkill} onChange={e => setSearchSkill(e.target.value)} placeholder="Search by skill" style={{marginBottom: '20px', borderRadius: '12px', padding: '10px', border: 'none', boxShadow: '0px 0px 10px rgba(0,0,0,0.1)', width: '80%', maxWidth: '600px'}} />
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         {filteredPeople.map((person, index) => (
-          <div key={index} style={{ backgroundColor: '#bbdefb', padding: '20px', marginBottom: '20px', borderRadius: '10px', width: '80%', maxWidth: '600px', boxShadow: '0px 0px 10px rgba(0,0,0,0.1)' }}>
+          <div key={index} onClick={() => handlePersonClick(person)} style={{ backgroundColor: '#bbdefb', padding: '20px', marginBottom: '20px', borderRadius: '10px', width: '80%', maxWidth: '600px', boxShadow: '0px 0px 10px rgba(0,0,0,0.1)' }}>
             <div style={{ marginBottom: '10px' }}>
               <strong>Name:</strong> {person.fullName}
             </div>
