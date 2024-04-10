@@ -23,7 +23,9 @@ function Landing() {
   const clubpost = () => {
     navigate('/clubpost');
   };
-
+  const handlehistory=()=>{
+    navigate('/history');
+  }
   return (
     <div>
       <div className="flex flex-col">
@@ -50,7 +52,7 @@ function Landing() {
           <CreateIcon fontSize="large" className="mr-2" />
           Host
         </button>
-        <button className='bg-blue-400 p-4 text-white hover:bg-blue-500 rounded-lg w-52'>
+        <button className='bg-blue-400 p-4 text-white hover:bg-blue-500 rounded-lg w-52'onClick={handlehistory}>
           <HistoryIcon fontSize="large" className="mr-2" />
           History
         </button> 

@@ -14,6 +14,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
+import { useNavigate } from 'react-router-dom';
 
 import Select from '@mui/material/Select';
 import axios from 'axios';
@@ -21,6 +22,7 @@ const defaultTheme = createTheme();
 var username;
 var password;var email;var campus1;var firstname;var lastname;
 export default function SignUp() {
+  const navigate=useNavigate();
   const [showPassword, setShowPassword] = React.useState(false);
   const [campus, setCampus] = React.useState('');
   const handleChange = (event) => {
@@ -31,6 +33,7 @@ export default function SignUp() {
 
   const handleSubmit = async(event) => {
     event.preventDefault();
+    navigate('/landing')
     const data=new FormData(event.target);
     email=data.get('email');
     password=data.get('password');
@@ -49,7 +52,12 @@ export default function SignUp() {
   password,
   campus1 // Assuming you want to send the selected campus
 })
-.then(result => console.log(result))
+
+.then(result =>{
+  console.log(result)
+
+} )
+
 .catch(err => console.log(err));
     
   };

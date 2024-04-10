@@ -25,9 +25,12 @@ export default function ClubLogin() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:3400/login", { username, password })
+    
+    await axios.post("http://localhost:3400/clublogin", { username, password })
       .then(result => {
+        
         if (result.data.status === "success") {
+          
           navigate('/clublistings');
         }
       })

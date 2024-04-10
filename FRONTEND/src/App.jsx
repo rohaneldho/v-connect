@@ -15,6 +15,7 @@ import ClubListings from './components/clublistings';
 import Clubpost from './components/clubpost';
 import ClubLogin from './components/clublogin';
 import Frontpage from './components/frontpage';
+import History from './components/history' ;
 const App = () => {
   // const [token, setToken] = useState(false)
 
@@ -29,10 +30,11 @@ const App = () => {
         <Route path="/listings" element={<Listings />} />
         <Route path="/userpage" element={<ProfilePage />} />
 
-        <Route path="/clublisting" element={<ClubListings />} />
+        <Route path="/clublistings" element={<ClubListings />} />
 
         <Route path="/clublogin" element={<ClubLogin />} />
         <Route path="/clubpost" element={<Clubpost />} />
+        <Route path="/history" element={<History />} />
         {/* <Route path='/listings' element={<} */}
         </Routes>
       

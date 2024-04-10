@@ -4,7 +4,9 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import XIcon from "@mui/icons-material/X";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import CallIcon from "@mui/icons-material/Call";
-
+import { useState } from "react";
+import axios from "axios";
+import  { useEffect } from "react";
 export default function ProfilePage() {
   const [editing1, setEditing1] = React.useState(false);
   const [phone, setPhone] = React.useState("9207995728");
@@ -24,6 +26,71 @@ export default function ProfilePage() {
   const [projectName, setProjectName] = useState("");
   const [projectDescription, setProjectDescription] = useState("");
   const [projects, setProjects] = useState([]);
+  const sendDataToBackend = async () => {
+    console.log("hiiii")
+    const data = {
+      phone,
+      instagram,
+      twitter,
+      linkedIn,
+      github,
+      fullName,
+      email,
+      campus,
+      skills,
+      projects,
+    };
+  
+    try {
+      const response = await axios.post('/userpage', data);
+      console.log(response.data);
+  
+      // Update the state variables with the data received from the backend
+      setPhone(response.data.phone);
+      setInstagram(response.data.instagram);
+      setTwitter(response.data.twitter);
+      setLinkedIn(response.data.linkedIn);
+      setGitHub(response.data.github);
+      setFullName(response.data.fullName);
+      setEmail(response.data.email);
+      setCampus(response.data.campus);
+      setSkills(response.data.skills);
+      setProjects(response.data.projects);
+    } catch (error) {
+      console.error(error);
+    }
+  };const fetchUserDetails = async () => {
+    try {
+      // Make a GET request to fetch user details
+      const response = await axios.get('/userpage');
+
+      // Update state variables with user details from backend
+      const userData = response.data;
+      console.log("hi am data")
+      console.log(userData.phone)
+      setPhone(userData.phone);
+      setInstagram(userData.instagram);
+      setTwitter(userData.twitter);
+      setLinkedIn(userData.linkedIn);
+      setGitHub(userData.github);
+      setFullName(userData.fullName);
+      setEmail(userData.email);
+      setCampus(userData.campus);
+      setSkills(userData.skills);
+      setProjects(userData.projects);
+    } catch (error) {
+      console.error('Error fetching user details:', error);
+    }
+  };
+
+  // Call fetchUserDetails function after component mounts
+  useEffect(() => {
+    fetchUserDetails();
+  }, []);
+  
+
+   
+  
 
   const handleEdit1 = () => {
     setEditing1(!editing1);
@@ -31,6 +98,24 @@ export default function ProfilePage() {
 
   const handleEdit2 = () => {
     setEditing2(!editing2);
+  };
+
+  // Define the openPopup function
+  const openPopup = () => {
+    setShowPopup(true);
+  };
+
+  // Define the closePopup function
+  const closePopup = () => {
+    setShowPopup(false);
+  };
+
+  // Define the addProject function
+  const addProject = () => {
+    setProjects([...projects, { name: projectName, description: projectDescription }]);
+    setProjectName("");
+    setProjectDescription("");
+    setShowPopup(false);
   };
 
   return (
@@ -248,23 +333,7 @@ export default function ProfilePage() {
               <button className="btn btn-primary" onClick={openPopup}>
                 Add Project
               </button>
-              <div className="projcontainer">
-                {projects.map((project, index) => (
-                  <div
-                    key={index}
-                    className="project border border-gray-300 rounded-md p-4 mb-4"
-                  >
-                    <h3 className="text-lg font-semibold mb-2">
-                      Project Title:
-                    </h3>
-                    <p className="text-gray-700">{project.name}</p>
-                    <h3 className="text-lg font-semibold mt-4 mb-2">
-                      Project Description:
-                    </h3>
-                    <p className="text-gray-700">{project.description}</p>
-                  </div>
-                ))}
-              </div>
+              
             </div>
           </div>
         </div>
@@ -299,6 +368,12 @@ export default function ProfilePage() {
           </div>
         </div>
       )}
+      <div className="text-center">
+  <button className="btn btn-primary" onClick={sendDataToBackend}>
+    Save
+  </button>
+</div>
+
     </section>
   );
 }

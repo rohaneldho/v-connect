@@ -22,20 +22,20 @@ const ClubList = () => {
   };
 
   return (
-    <div style={{ fontFamily: 'Arial, sans-serif', backgroundColor: '#34568B', padding: '20px' }}>
-      {clubs.map((club, index) => (<>
-        <div key={index} style={{ border: '2px solid #4E7AC7', borderRadius: '8px', padding: '15px', marginBottom: '20px', backgroundColor: '#92A8D1', maxWidth: '400px', margin: '0 auto' }}>
-          <h2 style={{ color: '#333', fontSize: '18px', marginBottom: '10px', textAlign: 'left', paddingLeft: '10px' }}>{club.clubName}</h2>
-          <div style={{ textAlign: 'left', paddingLeft: '10px' }}>
-            <img src={`data:image/jpeg;base64,${arrayBufferToBase64(club.posterImage.data)}`} alt="Poster" style={{ maxWidth: '100%', height: 'auto', borderRadius: '8px', display: 'block', margin: '0 auto', marginBottom: '10px' }} />
-            <p style={{ color: '#666', fontSize: '14px', marginBottom: '10px', textAlign: 'left' }}>Type: {club.type}</p>
-            <p style={{ color: '#666', fontSize: '14px', marginBottom: '10px', textAlign: 'left' }}>Description: {club.description}</p>
-            <a href={club.googleFormLink} style={{ color: '#007bff', textDecoration: 'none', fontSize: '14px', marginRight: '10px' }}>Google Form Link</a>
-          </div>
-        </div>
-        <br></br></>
-      ))}
+    <div className="font-sans bg-white-800 p-8">
+  {clubs.map((club, index) => (
+    <div key={index} className="border-2 border-blue-900 rounded-lg p-6 mb-8 max-w-md mx-auto hover:shadow-lg transition duration-300">
+      <h2 className="text-blue-100 text-lg mb-4">{club.clubName}</h2>
+      <div className="text-blue-200">
+        <img src={`data:image/jpeg;base64,${arrayBufferToBase64(club.posterImage.data)}`} alt="Poster" className="max-w-full h-auto rounded mb-4" />
+        <p className="mb-2">Type: {club.type}</p>
+        <p className="mb-2">Description: {club.description}</p>
+        <a href={club.googleFormLink} className="text-blue-400 text-sm mr-2 hover:underline">Google Form Link</a>
+      </div>
     </div>
+  ))}
+</div>
+
   );
 };
 
