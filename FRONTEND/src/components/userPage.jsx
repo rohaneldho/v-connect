@@ -13,17 +13,17 @@ export default function ProfilePage() {
   const [linkedIn, setLinkedIn] = React.useState("www.LinkedIn.com");
   const [github, setGitHub] = React.useState("www.GITHUB.com");
 
-  const [editing2, setEditing2] = useState(false);
-  const [fullName, setFullName] = useState("Barack Obama");
-  const [email, setEmail] = useState("BO@gmail.com");
-  const [campus, setCampus] = useState("Chennai");
-  const [skills, setSkills] = useState("C,C++");
+  const [editing2, setEditing2] = React.useState(false);
+  const [fullName, setFullName] = React.useState("Barack Obama");
+  const [email, setEmail] = React.useState("BO@gmail.com");
+  const [campus, setCampus] = React.useState("Chennai");
+  const [skills, setSkills] = React.useState("C,C++");
 
   // State variables for project popup
-  const [showPopup, setShowPopup] = useState(false);
-  const [projectName, setProjectName] = useState("");
-  const [projectDescription, setProjectDescription] = useState("");
-  const [projects, setProjects] = useState([]);
+  const [showPopup, setShowPopup] = React.useState(true);
+  const [projectName, setProjectName] = React.useState("");
+  const [projectDescription, setProjectDescription] = React.useState("");
+  const [projects, setProjects] = React.useState([]);
 
   const handleEdit1 = () => {
     setEditing1(!editing1);
@@ -32,12 +32,15 @@ export default function ProfilePage() {
   const handleEdit2 = () => {
     setEditing2(!editing2);
   };
+  const handleimgclick=()=>{
+    navigate('/landing')
+  }
 
   return (
     <section className="bg-gray-200">
       <div className="flex flex-col">
         <div className="main  flex justify-between items-center w-screen h-[7rem] bg-gray-800">
-          <img className="h-[7rem]" src="src\assets\vit.png" alt="VIT Logo" />
+          <img className="h-[7rem]" onClick={handleimgclick} src="src\assets\vit.png" alt="VIT Logo" />
           <h1 className="Title text-4xl font-bold text-white">
             Vellore Institute Of Technology
           </h1>
@@ -270,7 +273,8 @@ export default function ProfilePage() {
         </div>
       </div>
 
-      {showPopup && (
+      {/* {showPopup && ( */}
+      {(
         <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
           <div className="bg-white p-4 rounded-md">
             <h2 className="text-xl font-semibold mb-4">Add Project</h2>

@@ -39,6 +39,10 @@ function Listings() {
       })
       .catch(error => console.error('Error fetching project data:', error));
   }, []);
+  const handleimgclick=()=>{
+    navigate('/landing')
+  }
+  
   
   
 
