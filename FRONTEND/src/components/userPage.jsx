@@ -137,7 +137,7 @@ export default function ProfilePage() {
             <div className="bg-white rounded-md p-4 m-10">
               {/* Profile Photo (Put the link here) */}
               <img
-                src="src\assets\Barack-Obama.webp"
+                src="https://upload.wikimedia.org/wikipedia/commons/8/8d/President_Barack_Obama.jpg"
                 alt="avatar"
                 className="rounded-full mx-auto mb-4"
                 style={{ width: "150px" }}
