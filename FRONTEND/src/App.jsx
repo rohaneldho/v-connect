@@ -16,6 +16,7 @@ import Clubpost from './components/clubpost';
 import ClubLogin from './components/clublogin';
 import Frontpage from './components/frontpage';
 import History from './components/history' ;
+import People from './components/people';
 const App = () => {
   // const [token, setToken] = useState(false)
 
@@ -29,7 +30,7 @@ const App = () => {
         <Route path="/landing" element={<Landing />} />
         <Route path="/listings" element={<Listings />} />
         <Route path="/userpage" element={<ProfilePage />} />
-
+        <Route path='/people' element={<People />} />
         <Route path="/clublistings" element={<ClubListings />} />
 
         <Route path="/clublogin" element={<ClubLogin />} />

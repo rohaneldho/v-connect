@@ -6,9 +6,8 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import CallIcon from "@mui/icons-material/Call";
 import { useNavigate } from 'react-router-dom';
 
-import { useState } from "react";
+
 import axios from "axios";
-import  { useEffect } from "react";
 export default function ProfilePage() {
   const navigate=useNavigate();
   const [editing1, setEditing1] = useState(false);
@@ -136,21 +135,21 @@ export default function ProfilePage() {
     navigate('/landing');
   };
 
-  const openPopup = () => {
-    setShowPopup(true);
-  };
+  // const openPopup = () => {
+  //   setShowPopup(true);
+  // };
 
-  const closePopup = () => {
-    setShowPopup(false);
-  };
+  // const closePopup = () => {
+  //   setShowPopup(false);
+  // };
 
-  const addProject = () => {
-    const newProject = { name: projectName, description: projectDescription };
-    setProjects([...projects, newProject]);
-    setProjectName("");
-    setProjectDescription("");
-    closePopup();
-  };
+  // const addProject = () => {
+  //   const newProject = { name: projectName, description: projectDescription };
+  //   setProjects([...projects, newProject]);
+  //   setProjectName("");
+  //   setProjectDescription("");
+  //   closePopup();
+  // };
 
   // Function to save state variables to local storage
   useEffect(() => {

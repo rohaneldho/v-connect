@@ -7,6 +7,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import ListIcon from '@mui/icons-material/List';
 import { useNavigate } from 'react-router-dom';
 import {Link } from 'react-router-dom';
+import GroupIcon from '@mui/icons-material/Group';
 function Landing() {
   const navigate = useNavigate();
 
@@ -25,6 +26,9 @@ function Landing() {
   };
   const handleimgclick=()=>{
     navigate('/landing')
+  }
+  const handleConnections = () => {
+    navigate('/people');
   }
   
 
@@ -54,9 +58,9 @@ function Landing() {
           <CreateIcon fontSize="large" className="mr-2" />
           Host
         </button>
-        <button className='bg-blue-400 p-4 text-white hover:bg-blue-500 rounded-lg w-52'onClick={handlehistory}>
-          <HistoryIcon fontSize="large" className="mr-2" />
-          History
+        <button className='bg-blue-400 p-4 text-white hover:bg-blue-500 rounded-lg w-52' onClick={handleConnections}>
+          <GroupIcon fontSize="large" className="mr-2" />
+          Connections
         </button> 
         <button className='bg-blue-400 p-4 text-white hover:bg-blue-500 rounded-lg w-52' onClick={handleProfile}>
           <PersonIcon fontSize="large" className="mr-2" />
