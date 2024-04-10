@@ -118,7 +118,16 @@ app.get('/userpage', isLoggedIn, getUserDetails, (req, res) => {
     res.json(req.userDetails);
 });
 
-
+app.get('/people', async (req, res) => {
+    try {
+      const people = await userdetail.find({}, 'fullName skills -_id'); // fetch only 'fullName' and 'skills' fields
+      res.json(people);
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
+  });
+  
+  
 
 
 
